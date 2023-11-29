@@ -1,189 +1,201 @@
 <script>
-	let showDiv = false;
+	let findTrue = true;
 </script>
 
-<!-- svelte-ignore a11y-missing-attribute -->
-<div class="bg-white">
-	<div class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-		<div class="flex flex-col items-stretch w-[35%] max-md:w-full max-md:ml-0">
-			<div class="flex grow items-stretch justify-between gap-0 pr-14 max-md:mt-10 max-md:pr-5">
-				<div class="bg-white flex w-full flex-col pl-2 pr-2.5 pt-7 pb-3.5">
-					<img
-						loading="lazy"
-						src="https://cdn.builder.io/api/v1/image/assets/TEMP/21d1dc81-6891-4fc3-974b-b23701b888f6?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-						class="aspect-square object-contain object-center w-4 overflow-hidden max-w-full ml-5 self-start max-md:ml-2.5"
-					/>
-					<div
-						class="hover:bg-neutral-100 self-stretch flex items-stretch justify-between gap-3 mt-9 pl-3 pr-20 py-2.5 rounded-lg max-md:pr-5"
-					>
-						<img
-							loading="lazy"
-							src="https://cdn.builder.io/api/v1/image/assets/TEMP/80ff6d5a-caf0-4fb2-9720-cc39bc962f45?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
-						/>
-						<div
-							class="text-black text-sm leading-5 tracking-normal self-center grow whitespace-nowrap my-auto"
-						>
-							Recent
-						</div>
+<div class="flex h-screen">
+	<nav class="w-1/4 bg-gray-100 p-6">
+		<div class="flex flex-col space-y-4">
+			<button
+				on:click={() => (findTrue = true)}
+				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-white"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="text-gray-600"
+					><polygon
+						points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+					/></svg
+				>
+				Recent
+			</button><button
+				on:click={() => (findTrue = true)}
+				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-white"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="text-gray-600"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg
+				>
+				Find creators
+			</button><button
+				on:click={() => (findTrue = false)}
+				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-white"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="text-gray-600"
+					><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path
+						d="M22 21v-2a4 4 0 0 0-3-3.87"
+					/><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg
+				>
+				Community
+			</button><button
+				on:click={() => (findTrue = false)}
+				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-white"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="text-gray-600"
+					><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path
+						d="M10.3 21a1.94 1.94 0 0 0 3.4 0"
+					/></svg
+				>
+				Notifications
+			</button><button
+				on:click={() => (findTrue = false)}
+				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-white"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="text-gray-600"
+					><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" /><path
+						d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+					/><path d="M12 2v2" /><path d="M12 22v-2" /><path d="m17 20.66-1-1.73" /><path
+						d="M11 10.27 7 3.34"
+					/><path d="m20.66 17-1.73-1" /><path d="m3.34 7 1.73 1" /><path d="M14 12h8" /><path
+						d="M2 12h2"
+					/><path d="m20.66 7-1.73 1" /><path d="m3.34 17 1.73-1" /><path
+						d="m17 3.34-1 1.73"
+					/><path d="m11 13.73-4 6.93" /></svg
+				>
+				Settings
+			</button>
+		</div>
+		<div class="mt-10" />
+		<div
+			class="rounded-lg border bg-card text-card-foreground shadow-sm w-3/4 mt-[40vh] pr-8 mb-[10vh]"
+			data-v0-t="card"
+			id="9mrqblmvhwt"
+		>
+			<div class="p-6 flex items-center space-x-4 w-1/4">
+				<img
+					class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
+					alt="User Profile"
+					src="/placeholder.svg?height=40&amp;width=40"
+				/>
+				<div class="flex justify-between items-center w-full">
+					<div>
+						<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">Himanshu D</h3>
+						<p class="text-sm text-muted-foreground">Member</p>
 					</div>
-					<button
-						on:click={() => (showDiv = !showDiv)}
-						class="hover:bg-neutral-100 self-stretch flex items-stretch justify-between gap-3 mt-9 pl-3 pr-20 py-2.5 rounded-lg max-md:pr-5"
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="text-gray-600 absolute right-0 bottom-0"
+						><circle cx="12" cy="12" r="10" /><path d="M17 12h.01" /><path d="M12 12h.01" /><path
+							d="M7 12h.01"
+						/></svg
 					>
-						<img
-							loading="lazy"
-							src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b487f1c-9271-403c-bd7a-d36bc420171d?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
-						/>
-						<span
-							class="text-black text-left flex justify-start text-opacity-60 text-sm leading-5 tracking-normal grow whitespace-nowrap self-start"
-						>
-							Find creators
-						</span>
-					</button>
-
-					<div
-						class="hover:bg-neutral-100 self-stretch flex items-stretch justify-between gap-3 mt-9 pl-3 pr-20 py-2.5 rounded-lg max-md:pr-5"
-					>
-						<img
-							loading="lazy"
-							src="https://cdn.builder.io/api/v1/image/assets/TEMP/b6e3ec83-fd64-4ef2-bf92-78ab2bec445f?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
-						/>
-						<div
-							class="text-black text-opacity-60 text-sm leading-5 tracking-normal grow whitespace-nowrap self-start"
-						>
-							Notifications
-						</div>
-					</div>
-					<div
-						class="hover:bg-neutral-100 self-stretch flex items-stretch justify-between gap-3 mt-9 pl-3 pr-20 py-2.5 rounded-lg max-md:pr-5"
-					>
-						<img
-							loading="lazy"
-							src="https://cdn.builder.io/api/v1/image/assets/TEMP/3a4e51f0-4ad3-49e6-9374-d7591f98bf46?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
-						/>
-						<div
-							class="text-black text-opacity-60 text-sm leading-5 tracking-normal self-center grow whitespace-nowrap my-auto"
-						>
-							Settings
-						</div>
-					</div>
-					<div class="h-[10em]" />
-					<div
-						class="self-center flex w-[210px] max-w-full items-stretch justify-between gap-5 mt-7"
-					>
-						<div class="flex items-stretch justify-between gap-3">
-							<img
-								loading="lazy"
-								srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/30d00b36-7f1c-4bfd-8894-b79a1487b353?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-								class="aspect-square object-contain object-center w-8 shadow-sm overflow-hidden shrink-0 max-w-full"
-							/>
-							<button class="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
-								<div class="text-black text-sm leading-5 tracking-wide whitespace-nowrap">
-									Himanshu D
-								</div>
-								<div
-									class="text-black text-opacity-60 text-xs leading-4 tracking-normal whitespace-nowrap"
-								>
-									Member
-								</div>
-							</button>
-						</div>
-						<img
-							loading="lazy"
-							src="https://cdn.builder.io/api/v1/image/assets/TEMP/aa032280-85cf-4f45-a31f-48bd733e557a?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full mt-2 self-start"
-						/>
-					</div>
 				</div>
-				<div class="bg-black bg-opacity-10 flex w-px shrink-0 h-[654px] flex-col" />
 			</div>
 		</div>
-		{#if showDiv}
-			<div class="flex flex-col items-stretch w-[65%] ml-5 max-md:w-full max-md:ml-0">
-				<div class="flex flex-col items-center my-auto px-5 max-md:max-w-full max-md:mt-10">
-					<img
-						loading="lazy"
-						src="https://cdn.builder.io/api/v1/image/assets/TEMP/0ca706ca-145c-457c-ab19-15927fe99213?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-						class="aspect-[2.6] object-contain object-center w-[125px] overflow-hidden ml-0 max-w-full"
-					/>
-					<div class="text-black text-3xl leading-10 tracking-wider w-[309px] max-w-full">
-						Find creators you love
-					</div>
-					<search
-						class="border bg-white self-stretch flex flex-col px-3 py-2.5 rounded-full border-solid border-black border-opacity-20 items-start max-md:max-w-full"
-					>
-						<img
-							loading="lazy"
-							src="https://cdn.builder.io/api/v1/image/assets/TEMP/1c4a9eeb-a936-475b-a11f-0c8b5c4bb6f4?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class=" z-10 absolute object-contain object-center mt-4 overflow-hidden max-w-full"
-						/>
-						<input
-							type="text"
-							placeholder="  Search for creators"
-							class="border bg-white self-stretch flex flex-col px-3 py-2.5 rounded-full border-solid border-black border-opacity-20 items-start max-md:max-w-full"
-						/>
-					</search>
-					<div
-						class="self-stretch flex items-stretch justify-between gap-2 mt-9 pr-20 max-md:max-w-full max-md:flex-wrap max-md:pr-5"
-					>
-						<img
-							loading="lazy"
-							srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b442294c-1992-4213-b4e1-bff3426581cc?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-[2.22] object-contain object-center w-[71px] border overflow-hidden shrink-0 max-w-full rounded-full border-solid border-black border-opacity-20"
-						/>
-						<div
-							class="border flex items-stretch justify-between gap-2 pl-1.5 pr-7 py-2 rounded-full border-solid border-black border-opacity-20 max-md:pr-5"
-						>
-							<img
-								loading="lazy"
-								src="https://cdn.builder.io/api/v1/image/assets/TEMP/75a1c919-48f6-420a-9fc6-3ae46c9d1b85?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-								class="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
-							/>
-							<div class="text-black text-xs leading-3 grow whitespace-nowrap self-start">
-								Podcast
-							</div>
-						</div>
-						<img
-							loading="lazy"
-							srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/f288ae10-9ab6-4c47-ac7c-d7c0301344c9?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-[2.75] object-contain object-center w-[88px] border overflow-hidden shrink-0 max-w-full rounded-full border-solid border-black border-opacity-20"
-						/>
-						<img
-							loading="lazy"
-							srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/cc7dcc4a-d558-4846-8961-21bd6b2d43ce?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-							class="aspect-[2.94] object-contain object-center w-[94px] border overflow-hidden shrink-0 max-w-full rounded-full border-solid border-black border-opacity-20"
-						/>
-						<div
-							class="border flex items-stretch justify-between gap-2 pl-1.5 pr-9 py-2 rounded-full border-solid border-black border-opacity-20 max-md:pr-5"
-						>
-							<img
-								loading="lazy"
-								src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b97d0fe-ca96-4d17-98b4-7c78ef391fc6?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-								class="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
-							/>
-							<div class="text-black text-xs leading-3 self-center grow whitespace-nowrap my-auto">
-								Writing
-							</div>
-						</div>
-						<div
-							class="border flex items-stretch justify-between gap-2 pl-2 pr-6 py-2 rounded-full border-solid border-black border-opacity-20 max-md:pr-5"
-						>
-							<img
-								loading="lazy"
-								src="https://cdn.builder.io/api/v1/image/assets/TEMP/55514ef9-4002-44cc-9401-9589e5b43fee?apiKey=51a0d4fd5fa64c4fb20653f7caa5129f&"
-								class="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
-							/>
-							<div class="text-black text-xs leading-3 self-center grow whitespace-nowrap my-auto">
-								Photography
-							</div>
-						</div>
-					</div>
-				</div>
+	</nav>
+	{#if findTrue}
+		<main class="w-3/4 p-6 bg-white">
+			<h1 class="text-4xl font-bold mb-6">Find creators you love</h1>
+			<div class="relative mb-6">
+				<input
+					class="flex h-10 rounded-md border border-input bg-background px-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-10 pr-4 py-2 w-full"
+					placeholder="Search creators or topics"
+				/><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-600"
+					><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg
+				>
 			</div>
-		{/if}
-	</div>
+
+			<div class="flex space-x-2">
+				<button
+					type="button"
+					class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:outline-none hover:ring-2 hover:ring-ring hover:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+				>
+					Art
+				</button>
+				<button
+					class="inline-flex items-center rounded-full border-solid border-black px-2.5 py-0.5 text-xs font-semibold transition-colors hover:outline-none hover:ring-2 hover:ring-ring hover:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+				>
+					Podcast
+				</button>
+				<button
+					class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:outline-none hover:ring-2 hover:ring-ring hover:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+				>
+					Music
+				</button>
+				<button
+					class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:outline-none hover:ring-2 hover:ring-ring hover:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+				>
+					Games
+				</button>
+				<button
+					class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:outline-none hover:ring-2 hover:ring-ring hover:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+				>
+					Writing
+				</button>
+				<button
+					class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors hover:outline-none hover:ring-2 hover:ring-ring hover:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80"
+				>
+					Photography
+				</button>
+			</div>
+		</main>
+	{/if}
 </div>

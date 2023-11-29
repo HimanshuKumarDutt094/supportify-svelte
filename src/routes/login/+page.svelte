@@ -1,25 +1,22 @@
 <script>
+	import { onMount } from 'svelte';
+
 	export let form;
+	import { goto } from '$app/navigation';
+
+	let email = '';
+
+	async function handleSubmit(event) {
+		event.preventDefault();
+
+		if (false) {
+			goto('/home');
+		} else {
+			goto('/signup');
+		}
+	}
 </script>
 
-<!-- <div class="flex h-fit rounded-xl flex-cols items-center p-8 mt-[40vh] mx-auto my-auto bg-white">
-	<div class="mb-5 p-5">
-		<img src="/logo-supportify.png" alt="Logo" />
-	</div>
-	<div class="mt-3 p-4 bg-blue-400">
-		<search class="auth-form" method="post" action="?/OAuth2">
-			<div>
-				<button class="btn-auth" type="submit">
-					<img
-						class="btn-auth-img"
-						src="/google_signin_buttons/web/1x/btn_google_signin_dark_pressed_web.png"
-						alt="google sign in"
-					/>
-				</button>
-			</div>
-		</search>
-	</div>
-</div> -->
 <div
 	class="bg-white mt-[20vh] p-6 rounded-2xl flex flex-col w-fit mx-auto my-auto justify-center items-center px-5"
 >
@@ -29,23 +26,18 @@
 			Log in or sign up
 		</div>
 		<div
-			class="rounded border self-stretch flex w-full flex-col items-center mt-10 border-solid border-gray-300 max-md:mt-10"
+			class="rounded self-stretch flex w-full flex-col items-center mt-10 border-solid border-gray-300 max-md:mt-10"
 		>
 			<div
-				class="text-black text-center w-full text-sm leading-4 self-center grow whitespace-nowrap my-auto"
+				class="text-black m-0 p-0 text-center w-full text-sm leading-4 self-center grow whitespace-nowrap my-auto"
 			>
-				<form class="auth-form w-full" method="post" action="?/OAuth2">
-					<div>
-						<button class="btn-auth w-full" type="submit">
-							<div
-								class="g_id_signin w-full"
-								data-type="standard"
-								data-shape="rectangular"
-								data-theme="outline"
-								data-text="continue_with"
-								data-size="large"
-								data-logo_alignment="left"
-								data-width="400px"
+				<form class="auth-form w-full m-0 p-0" method="post" action="?/OAuth2">
+					<div class="m-0 p-0">
+						<button class="btn-auth w-full flex m-0 p-0" type="submit">
+							<img
+								class="btn-auth-img min-w-full h-14 m-0 p-0"
+								src="/google_signin_buttons/web/1x/btn_google_signin_dark_pressed_web.png"
+								alt="google sign in"
 							/>
 						</button>
 					</div>
@@ -58,17 +50,22 @@
 		>
 			or
 		</div>
-		<input
-			type="text"
-			placeholder="  enter your email"
-			class="border bg-white self-stretch flex shrink-0 h-10 flex-col mt-4 rounded-lg border-solid border-black border-opacity-20"
-		/>
+		<form on:submit={handleSubmit}>
+			<input
+				bind:value={email}
+				id="emailInput"
+				type="text"
+				placeholder="  enter your email"
+				class="border bg-white self-stretch flex shrink-0 h-10 flex-col mt-4 rounded-lg border-solid border-black border-opacity-20"
+			/>
 
-		<div
-			class="text-white text-center text-sm leading-4 whitespace-nowrap bg-zinc-950 self-stretch items-center mt-3 px-5 py-3 rounded-lg"
-		>
-			Continue
-		</div>
+			<button
+				type="submit"
+				class="text-white text-center text-sm leading-4 whitespace-nowrap bg-zinc-950 self-stretch items-center mt-3 px-5 py-3 rounded-lg"
+			>
+				Continue
+			</button>
+		</form>
 		<div class="text-sky-600 text-center text-sm leading-5 tracking-normal whitespace-nowrap mt-7">
 			Need help signing in?
 		</div>
@@ -78,7 +75,7 @@
 			<span class="text-neutral-950 text-opacity-60">
 				By signing up, you are creating a Supportify account and agree
 				<br />
-				to Supportify’s
+				to Supportify's
 			</span>
 			<span class="text-cyan-400 text-opacity-60"> Terms and Privacy Policy. </span>
 		</div>
