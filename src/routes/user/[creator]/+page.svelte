@@ -2,3 +2,5 @@
 	import { page } from '$app/stores';
 	export const creator = JSON.stringify($page.params.creator, null, 2);
 </script>
+
+<h2>hi</h2>

@@ -1,7 +1,35 @@
-<!--
-// v0 by Vercel.
-// https://v0.dev/t/1Bn0TYvdkpO
--->
+<script>
+	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
+
+	function signUp() {
+		const name = document.getElementById('name').value;
+		const email = document.getElementById('email').value;
+		const password = document.getElementById('password').value;
+		const terms = document.getElementById('terms').checked;
+
+		if (!terms) {
+			alert('Please agree to the terms and conditions');
+			return;
+		}
+
+		// Check if the user is already signed up
+		const storedEmail = sessionStorage.getItem('email');
+		if (storedEmail === email) {
+			alert('This email is already signed up');
+			return;
+		}
+
+		// Store the user data in the session storage
+		sessionStorage.setItem('name', name);
+		sessionStorage.setItem('email', email);
+		sessionStorage.setItem('password', password);
+
+		alert('Account created successfully');
+		goto('/home');
+	}
+</script>
+
 <div
 	class="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500"
 >
@@ -15,7 +43,6 @@
 				><input
 					class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 					id="name"
-					required=""
 				/>
 			</div>
 			<div class="space-y-1">
@@ -25,7 +52,6 @@
 				><input
 					class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 					id="email"
-					required=""
 					type="email"
 				/>
 			</div>
@@ -36,7 +62,6 @@
 				><input
 					class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 					id="password"
-					required=""
 					type="password"
 				/>
 			</div>
@@ -53,8 +78,9 @@
 				</label>
 			</div>
 			<button
+				on:click={signUp}
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-green-500 hover:bg-green-600 text-white"
-				type="submit"
+				type="button"
 			>
 				Sign Up
 			</button>

@@ -13,7 +13,7 @@
 		<button type="button" class="w-[20em] bg-white p-5">
 			<nav class="space-y-1 w-full flex flex-col gap-5">
 				<button
-					on:click={() => goto('/user/home')}
+					on:click={() => goto(`/user/${creator}/home`)}
 					type="button"
 					class="flex items-center space-x-2 p-2 text-gray-700 hover:bg-gray-200 rounded"
 					><svg
