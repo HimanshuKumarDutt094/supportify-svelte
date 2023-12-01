@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	const username = sessionStorage.getItem('name');
 </script>
 
 <div class="flex h-screen">
@@ -107,11 +108,11 @@
 		</div>
 		<div class="mt-10" />
 		<div
-			class="rounded-lg border bg-card text-card-foreground shadow-sm w-3/4 mt-[40vh] pr-8 mb-[10vh]"
+			class="rounded-lg border w-full bg-card text-card-foreground shadow-sm mt-[40vh] pr-8 mb-[10vh]"
 			data-v0-t="card"
 			id="9mrqblmvhwt"
 		>
-			<div class="p-6 flex items-center space-x-4 w-1/4">
+			<div class="p-6 flex items-center space-x-4">
 				<img
 					class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
 					alt="User Profile"
@@ -119,7 +120,7 @@
 				/>
 				<div class="flex justify-between items-center w-full">
 					<div>
-						<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">Himanshu D</h3>
+						<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">{username}</h3>
 						<p class="text-sm text-muted-foreground">Member</p>
 					</div>
 					<svg
