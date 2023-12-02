@@ -5,6 +5,8 @@ const config = {
 	kit: {
 		adapter: adapter()
 	},
-	preprocess: vitePreprocess()
+	preprocess: vitePreprocess({
+		include: ['src/**/*.svelte']
+	})
 };
 export default config;

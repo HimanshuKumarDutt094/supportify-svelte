@@ -5,15 +5,17 @@
 	import { goto } from '$app/navigation';
 
 	let email = '';
-	const storedEmail = sessionStorage.getItem('email');
 
 	async function handleSubmit(event) {
 		event.preventDefault();
+		if (typeof window !== 'undefined') {
+			const storedEmail = sessionStorage.getItem('email');
 
-		if (storedEmail === email) {
-			goto('/home');
-		} else {
-			goto('/signup');
+			if (storedEmail === email) {
+				goto('/home');
+			} else {
+				goto('/signup');
+			}
 		}
 	}
 </script>

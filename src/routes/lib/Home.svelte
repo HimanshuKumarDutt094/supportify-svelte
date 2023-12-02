@@ -1,6 +1,12 @@
 <script>
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	const username = sessionStorage.getItem('name');
+	import { usersData } from './store';
+
+	export let data;
+	let username;
+
+	username = data.name;
 </script>
 
 <div class="flex h-screen">
@@ -116,7 +122,7 @@
 				<img
 					class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
 					alt="User Profile"
-					src="/placeholder.svg?height=40&amp;width=40"
+					src={data.pfp}
 				/>
 				<div class="flex justify-between items-center w-full">
 					<div>

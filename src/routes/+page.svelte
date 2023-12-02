@@ -692,9 +692,7 @@
 	.clip {
 		clip: rect(0, 0, 0, 0);
 	}
-	.animate-left {
-		animation: animateleft 18s linear infinite;
-	}
+
 	@keyframes animateleft {
 		0% {
 			transform: translateX(100%);
