@@ -18,7 +18,6 @@ export async function insertUser(userData) {
 			// Insert the user data
 			await users.insertOne(userData);
 			usersData.set(userData);
-			console.log('users data are', usersData);
 			return userData;
 		}
 	} catch (error) {

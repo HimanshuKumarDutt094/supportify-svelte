@@ -9,14 +9,14 @@ const production = process.env.NODE_ENV === 'production';
 export const actions = {
 	OAuth2: async ({}) => {
 		const redirectURL = production
-			? 'https://www.supportify-svelte.vercel.app/oauth'
+			? 'https://supportify-svelte.vercel.app/oauth'
 			: 'http://localhost:5173/oauth';
 
 		const oAuth2Client = new OAuth2Client(SECRET_CLIENT_ID, SECRET_CLIENT_SECRET, redirectURL);
 
 		// Generate the url that will be used for the consent dialog.
 		const authorizeUrl = oAuth2Client.generateAuthUrl({
-			access_type: 'offline',
+			access_type: production ? 'online' : 'offline',
 			scope: 'https://www.googleapis.com/auth/userinfo.profile  openid ',
 			prompt: 'consent'
 		});

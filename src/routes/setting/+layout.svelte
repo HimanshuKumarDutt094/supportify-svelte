@@ -3,6 +3,7 @@
 	import Home from '../lib/Home.svelte';
 	import { onMount } from 'svelte';
 	let slotDiv;
+	export let data;
 	onMount(() => {
 		window.addEventListener(
 			'wheel',
@@ -17,7 +18,9 @@
 
 <main class="flex flex-row flex-nowrap h-screen">
 	<div class="w-1/4 h-full overflow-hidden">
-		<Home />
+		{#if data}
+			<Home {data} />
+		{/if}
 	</div>
 	<div bind:this={slotDiv} class="w-full h-full overflow-auto no-scrollbar">
 		<slot />

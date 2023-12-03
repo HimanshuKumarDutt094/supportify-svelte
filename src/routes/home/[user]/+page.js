@@ -12,7 +12,7 @@ export async function load({ params }) {
 	const user = params.user;
 
 	try {
-		const response = await api.get(`/api/serverless?query=${user}`);
+		const response = await api.get(`https://creepy-red-fossa.cyclic.app/getData/${user}`);
 		const userData = response.data;
 
 		usersData.set(userData);

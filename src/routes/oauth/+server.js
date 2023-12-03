@@ -11,7 +11,7 @@ const SECRET_CLIENT_ID = process.env.SECRET_CLIENT_ID;
 const SECRET_CLIENT_SECRET = process.env.SECRET_CLIENT_SECRET;
 export const GET = async ({ url }) => {
 	const redirectURL = production
-		? 'https://www.supportify-svelte.vercel.app/oauth'
+		? 'https://supportify-svelte.vercel.app/oauth'
 		: 'http://localhost:5173/oauth';
 	const code = await url.searchParams.get('code');
 
