@@ -4,16 +4,15 @@
 	import { usersData } from './store';
 
 	export let data;
-	let username;
 
-	username = data.name;
+	const username = data.name;
 </script>
 
 <div class="flex h-screen">
 	<nav class=" bg-gray-100 p-6">
 		<div class="flex flex-col space-y-4">
 			<button
-				on:click={() => goto('/home')}
+				on:click={() => goto(`/home/${data.sub}`)}
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-white"
 				><svg
 					xmlns="http://www.w3.org/2000/svg"

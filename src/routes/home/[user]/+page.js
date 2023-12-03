@@ -1,9 +1,8 @@
-import dotenv from 'dotenv';
 import axios from 'axios';
-dotenv.config();
+
 import { get } from 'svelte/store';
 
-const production = process.env.NODE_ENV === 'production';
+const production = import.meta.env.MODE === 'production';
 
 import { usersData } from '$lib/store';
 const api = axios.create({
@@ -20,8 +19,7 @@ export async function load({ params }) {
 			const response = await api.get(`https://creepy-red-fossa.cyclic.app/getData/${user}`);
 			const userData = response.data;
 
-			console.log('user data is stored and returning', userData);
-			usersData.set({ name: userData.user, pfp: userData.pfp });
+			usersData.set({ sub: userData.sub, name: userData.user, pfp: userData.pfp });
 			return { userData };
 		} else {
 			return { usersData };

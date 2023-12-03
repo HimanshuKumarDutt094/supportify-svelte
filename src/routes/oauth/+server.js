@@ -4,14 +4,13 @@ import { OAuth2Client } from 'google-auth-library';
 import { insertUser } from '../user-db';
 import { getUserData } from '../user-db';
 import { usersData } from '$lib/store';
-import dotenv from 'dotenv';
 
 import { get } from 'svelte/store';
-dotenv.config();
-const production = process.env.NODE_ENV === 'production';
+
+const production = import.meta.env.MODE === 'production';
 const userSotre = usersData;
-const SECRET_CLIENT_ID = process.env.SECRET_CLIENT_ID;
-const SECRET_CLIENT_SECRET = process.env.SECRET_CLIENT_SECRET;
+const SECRET_CLIENT_ID = import.meta.env.SECRET_CLIENT_ID;
+const SECRET_CLIENT_SECRET = import.meta.env.SECRET_CLIENT_SECRET;
 export const GET = async ({ url }) => {
 	const redirectURL = production
 		? 'https://supportify-svelte.vercel.app/oauth'
@@ -35,8 +34,6 @@ export const GET = async ({ url }) => {
 		// Combine user data from the OAuth token and the profile information
 		const user = { ...oAuth2Client.credentials, ...userProfile };
 		await insertUser(user);
-		const userVal = get(usersData);
-		console.log('user val is ', userVal);
 
 		throw redirect(303, `/home/${user.sub.toString()}`);
 	} catch (err) {

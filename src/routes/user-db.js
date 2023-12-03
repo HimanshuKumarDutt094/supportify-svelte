@@ -14,13 +14,13 @@ export async function insertUser(userData) {
 		if (existingUser) {
 			console.warn('User with _id already exists setting store to it and, Skipping insertion.');
 
-			usersData.set({ name: userData.name, pfp: userData.picture });
+			usersData.set({ sub: userData.sub, name: userData.name, pfp: userData.picture });
 
 			// Optionally, you can choose to update the existing user data here if needed
 		} else {
 			// Insert the user data
 			await users.insertOne(userData);
-			usersData.set({ name: userData.name, pfp: userData.picture });
+			usersData.set({ sub: userData.sub, name: userData.name, pfp: userData.picture });
 			return userData;
 		}
 	} catch (error) {

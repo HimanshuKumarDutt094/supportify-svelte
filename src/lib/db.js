@@ -1,7 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
 import { MongoClient } from 'mongodb';
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = import.meta.env.MONGO_URI;
 let client;
 
 export async function connectToDatabase() {
