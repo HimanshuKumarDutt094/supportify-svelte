@@ -1913,12 +1913,10 @@ packages:
     engines: {node: '>= 10'}
     peerDependencies:
       postcss: '>=8.0.9'
-      ts-node: '>=9.0.0'
     peerDependenciesMeta:
       postcss:
         optional: true
-      ts-node:
-        optional: true
+      
     dependencies:
       lilconfig: 2.1.0
       postcss: 8.4.32
@@ -1930,12 +1928,10 @@ packages:
     engines: {node: '>= 14'}
     peerDependencies:
       postcss: '>=8.0.9'
-      ts-node: '>=9.0.0'
     peerDependenciesMeta:
       postcss:
         optional: true
-      ts-node:
-        optional: true
+     
     dependencies:
       lilconfig: 3.0.0
       postcss: 8.4.32
