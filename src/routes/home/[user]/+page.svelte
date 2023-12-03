@@ -1,6 +1,3 @@
-<script lang="ts">
-	import Home from '../../../lib/Home.svelte';
-	export let data;
+<script>
+	console.log('hello');
 </script>
-
-<Home {data} />

@@ -1,6 +1,6 @@
 // user-db.js
 import { connectToDatabase } from '../lib/db';
-import { usersData } from '../lib/store';
+import { usersData } from '$lib/store';
 import { ObjectId } from 'mongodb';
 export async function insertUser(userData) {
 	const client = await connectToDatabase();
@@ -8,17 +8,19 @@ export async function insertUser(userData) {
 	const users = db.collection('users');
 
 	try {
+		const existingUser = await users.findOne({ sub: userData.sub });
 		await users.createIndex({ sub: 1 }, { unique: true });
 		// Check if a user with the same _id already exists
-		const existingUser = await users.findOne({ sub: userData.sub });
-
 		if (existingUser) {
-			console.warn('User with _id already exists. Skipping insertion.');
+			console.warn('User with _id already exists setting store to it and, Skipping insertion.');
+
+			usersData.set({ name: userData.name, pfp: userData.picture });
+
 			// Optionally, you can choose to update the existing user data here if needed
 		} else {
 			// Insert the user data
 			await users.insertOne(userData);
-			usersData.set(userData);
+			usersData.set({ name: userData.name, pfp: userData.picture });
 			return userData;
 		}
 	} catch (error) {

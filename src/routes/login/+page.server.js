@@ -2,6 +2,7 @@ import { redirect } from '@sveltejs/kit';
 import { OAuth2Client } from 'google-auth-library';
 import dotenv from 'dotenv';
 dotenv.config();
+
 const SECRET_CLIENT_ID = process.env.SECRET_CLIENT_ID;
 const SECRET_CLIENT_SECRET = process.env.SECRET_CLIENT_SECRET;
 const production = process.env.NODE_ENV === 'production';

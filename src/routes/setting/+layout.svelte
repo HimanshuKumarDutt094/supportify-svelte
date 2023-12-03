@@ -1,9 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
-	import Home from '../../lib/Home.svelte';
+	import { usersData } from '$lib/store';
+	import Home from '$lib/Home.svelte';
+	export let apiData;
+	let data = $usersData ? $usersData : apiData;
 	import { onMount } from 'svelte';
 	let slotDiv;
-	export let data;
 	onMount(() => {
 		window.addEventListener(
 			'wheel',

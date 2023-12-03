@@ -4,7 +4,9 @@
 	import { goto } from '$app/navigation';
 	import Home from '../../lib/Home.svelte';
 	import { onMount } from 'svelte';
-	export let data;
+	import { usersData } from '$lib/store';
+	export let apiData;
+	let data = $usersData ? $usersData : apiData;
 </script>
 
 <main class="flex flex-row flex-nowrap h-screen">
