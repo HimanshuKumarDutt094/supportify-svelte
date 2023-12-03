@@ -1,6 +1,6 @@
 // user-db.js
-import { connectToDatabase } from './lib/db';
-import { usersData } from './lib/store';
+import { connectToDatabase } from '../lib/db';
+import { usersData } from '../lib/store';
 import { ObjectId } from 'mongodb';
 export async function insertUser(userData) {
 	const client = await connectToDatabase();
@@ -8,7 +8,7 @@ export async function insertUser(userData) {
 	const users = db.collection('users');
 
 	try {
-		users.createIndex({ sub: 1 }, { unique: true });
+		await users.createIndex({ sub: 1 }, { unique: true });
 		// Check if a user with the same _id already exists
 		const existingUser = await users.findOne({ sub: userData.sub });
 

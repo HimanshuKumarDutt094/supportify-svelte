@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const production = process.env.NODE_ENV === 'production';
 
-import { usersData } from '../../lib/store';
+import { usersData } from '../../../lib/store';
 const api = axios.create({
 	baseURL: production ? 'https://supportify-svelte.vercel.app' : 'http://localhost:3000'
 });
