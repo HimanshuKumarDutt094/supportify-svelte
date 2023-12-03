@@ -2,17 +2,18 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { usersData } from './store';
-
+	import { get } from 'svelte/store';
 	export let data;
-
+	let hovered = false;
 	const username = data.name;
+	let sub = data.sub;
 </script>
 
 <div class="flex h-screen">
 	<nav class=" bg-gray-100 p-6">
 		<div class="flex flex-col space-y-4">
 			<button
-				on:click={() => goto(`/home/${data.sub}`)}
+				on:click={() => goto(`/home/${sub}`)}
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover-visible:outline-none hover-visible:ring-2 hover-visible:ring-ring hover-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-white"
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -112,39 +113,91 @@
 			</button>
 		</div>
 		<div class="mt-10" />
-		<div
-			class="rounded-lg border w-full bg-card text-card-foreground shadow-sm mt-[40vh] pr-8 mb-[10vh]"
-			data-v0-t="card"
-			id="9mrqblmvhwt"
-		>
-			<div class="p-6 flex items-center space-x-4">
-				<img
-					class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
-					alt="User Profile"
-					src={data.pfp}
-				/>
-				<div class="flex justify-between items-center w-full">
-					<div>
-						<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">{username}</h3>
-						<p class="text-sm text-muted-foreground">Member</p>
+		<div>
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+			<div
+				on:mouseover={() => {
+					hovered = true;
+					console.log('hovered', hovered);
+				}}
+				on:mouseleave={() => (hovered = false)}
+				class="rounded-lg border w-full bg-card text-card-foreground shadow-sm mt-[40vh] pr-8
+				mb-[10vh]"
+				data-v0-t="card"
+				id="9mrqblmvhwt"
+			>
+				<div class="{hovered ? 'popup' : 'hidden absolute'} p-6 items-center space-x-4">
+					<img
+						class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
+						alt="User Profile"
+						src={data.pfp}
+					/>
+					<div class="flex justify-between items-center w-full">
+						<div>
+							<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">{username}</h3>
+							<p class="text-sm text-muted-foreground">Creator</p>
+						</div>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="text-gray-600 absolute right-0 bottom-0"
+							><circle cx="12" cy="12" r="10" /><path d="M17 12h.01" /><path d="M12 12h.01" /><path
+								d="M7 12h.01"
+							/></svg
+						>
 					</div>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="text-gray-600 absolute right-0 bottom-0"
-						><circle cx="12" cy="12" r="10" /><path d="M17 12h.01" /><path d="M12 12h.01" /><path
-							d="M7 12h.01"
-						/></svg
-					>
+				</div>
+
+				<div class="p-6 flex items-center space-x-4">
+					<img
+						class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
+						alt="User Profile"
+						src={data.pfp}
+					/>
+					<div class="flex justify-between items-center w-full">
+						<div>
+							<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">{username}</h3>
+							<p class="text-sm text-muted-foreground">Member</p>
+						</div>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="text-gray-600 absolute right-0 bottom-0"
+							><circle cx="12" cy="12" r="10" /><path d="M17 12h.01" /><path d="M12 12h.01" /><path
+								d="M7 12h.01"
+							/></svg
+						>
+					</div>
 				</div>
 			</div>
 		</div>
 	</nav>
 </div>
+
+<style>
+	.popup:hover {
+		display: flex;
+		z-index: 10;
+		position: absolute;
+		transform: translateY(-100%);
+		border: 2px solid #e5e7eb;
+		border-radius: 1em;
+		transition: all 0.3s ease-in-out;
+	}
+</style>

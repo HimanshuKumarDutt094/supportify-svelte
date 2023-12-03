@@ -13,8 +13,7 @@ export async function insertUser(userData) {
 		// Check if a user with the same _id already exists
 		if (existingUser) {
 			console.warn('User with _id already exists setting store to it and, Skipping insertion.');
-
-			usersData.set({ sub: userData.sub, name: userData.name, pfp: userData.picture });
+			usersData.set({ sub: existingUser.sub, name: existingUser.name, pfp: existingUser.picture });
 
 			// Optionally, you can choose to update the existing user data here if needed
 		} else {
@@ -26,11 +25,10 @@ export async function insertUser(userData) {
 	} catch (error) {
 		// Handle duplicate key error (E11000) and log a message
 		if (error.code === 11000) {
-			console.error('Error inserting user - Duplicate key:', error.message);
+			console.log('Error inserting user - Duplicate key:', error.message);
 		} else {
-			console.error('Error inserting user:', error);
+			console.log('Error inserting user:', error);
 		}
-		throw error;
 	}
 }
 

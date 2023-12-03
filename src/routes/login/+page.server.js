@@ -1,9 +1,9 @@
 import { redirect } from '@sveltejs/kit';
 import { OAuth2Client } from 'google-auth-library';
 
-const SECRET_CLIENT_ID = import.meta.env.SECRET_CLIENT_ID;
-const SECRET_CLIENT_SECRET = import.meta.env.SECRET_CLIENT_SECRET;
-const production = import.meta.env.MODE === 'production';
+const SECRET_CLIENT_ID = import.meta.env.VITE_SECRET_CLIENT_ID;
+const SECRET_CLIENT_SECRET = import.meta.env.VITE_SECRET_CLIENT_SECRET;
+const production = import.meta.env.VITE_MODE === 'production';
 
 export const actions = {
 	OAuth2: async ({}) => {

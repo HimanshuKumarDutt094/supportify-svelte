@@ -15,10 +15,9 @@ export async function load({ params }) {
 	const user = params.user;
 	const userPresent = get(usersData);
 	try {
-		if (userPresent.name === undefined) {
+		if (userPresent.sub === undefined) {
 			const response = await api.get(`https://creepy-red-fossa.cyclic.app/getData/${user}`);
 			const userData = response.data;
-
 			usersData.set({ sub: userData.sub, name: userData.user, pfp: userData.pfp });
 			return { userData };
 		} else {

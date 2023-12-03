@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-const MONGO_URI = import.meta.env.MONGO_URI;
+const MONGO_URI = import.meta.env.VITE_MONGO_URI;
 let client;
 
 export async function connectToDatabase() {

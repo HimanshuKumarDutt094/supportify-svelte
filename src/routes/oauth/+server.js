@@ -9,8 +9,8 @@ import { get } from 'svelte/store';
 
 const production = import.meta.env.MODE === 'production';
 const userSotre = usersData;
-const SECRET_CLIENT_ID = import.meta.env.SECRET_CLIENT_ID;
-const SECRET_CLIENT_SECRET = import.meta.env.SECRET_CLIENT_SECRET;
+const SECRET_CLIENT_ID = import.meta.env.VITE_SECRET_CLIENT_ID;
+const SECRET_CLIENT_SECRET = import.meta.env.VITE_SECRET_CLIENT_SECRET;
 export const GET = async ({ url }) => {
 	const redirectURL = production
 		? 'https://supportify-svelte.vercel.app/oauth'
