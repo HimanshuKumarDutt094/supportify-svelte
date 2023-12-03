@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import Home from '../lib/Home.svelte';
+	import Home from '../../lib/Home.svelte';
 	import { onMount } from 'svelte';
 	let slotDiv;
 	export let data;

@@ -2,7 +2,7 @@
 	// @ts-nocheck
 
 	import { goto } from '$app/navigation';
-	import Home from '../lib/Home.svelte';
+	import Home from '../../lib/Home.svelte';
 	import { onMount } from 'svelte';
 	export let data;
 </script>
