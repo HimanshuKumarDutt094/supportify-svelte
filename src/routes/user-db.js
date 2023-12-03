@@ -8,8 +8,9 @@ export async function insertUser(userData) {
 	const users = db.collection('users');
 
 	try {
+		users.createIndex({ sub: 1 }, { unique: true });
 		// Check if a user with the same _id already exists
-		const existingUser = await users.findOne({ _id: userData._id });
+		const existingUser = await users.findOne({ sub: userData.sub });
 
 		if (existingUser) {
 			console.warn('User with _id already exists. Skipping insertion.');
@@ -44,12 +45,4 @@ export async function getUserData(access_token) {
 
 	const userData = await response.json();
 	return userData;
-}
-export async function getUserById(userId) {
-	const client = await connectToDatabase();
-	const db = client.db('supportify-svelte'); // Replace with your database name
-	const users = db.collection('users');
-	const objectId = new ObjectId(userId);
-
-	return await users.findOne({ _id: objectId });
 }
