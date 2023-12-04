@@ -127,6 +127,8 @@
 				mb-[10vh]"
 				data-v0-t="card"
 				id="9mrqblmvhwt"
+				pnpm
+				install
 			>
 				<div class="{hovered ? 'popup' : 'hidden absolute'} p-6 items-center space-x-4">
 					<img
