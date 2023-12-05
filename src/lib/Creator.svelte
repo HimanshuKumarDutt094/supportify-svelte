@@ -4,8 +4,12 @@
 -->
 <script>
 	import { goto } from '$app/navigation';
-
+	import { usersData } from '$lib/store';
+	let clicked = false;
 	export let creator = '';
+	let data = $usersData;
+	console.log('data is from creators:', data);
+	let username = data.name;
 </script>
 
 <div class="max-h-screen bg-gray-100">
@@ -152,30 +156,73 @@
 							d="m17 3.34-1 1.73"
 						/><path d="m11 13.73-4 6.93" /></svg
 					><span>Settings</span></button
-				><button
-					class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 mt-4 w-full"
-					>Create</button
-				><button
-					class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-4 w-full"
-					>Get app</button
 				>
-				<div class="flex items-center space-x-2 mt-4 p-2 bg-green-100 text-green-700 rounded">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="h-5 w-5"
-						><path
-							d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
-						/><path d="m9 12 2 2 4-4" /></svg
-					><span>{creator}</span>
+
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- svelte-ignore a11y-no-static-element-interactions -->
+				<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+				<div
+					class="rounded-lg border w-full bg-card text-card-foreground shadow-sm mt-[40vh] pr-8
+				mb-[10vh]"
+					data-v0-t="card"
+					id="9mrqblmvhwt"
+				>
+					<div class=" p-6 flex items-center space-x-4">
+						<img
+							on:click={() => (clicked = !clicked)}
+							class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
+							alt="User Profile"
+							src={data.pfp}
+						/>
+						<div class="flex justify-between items-center w-full">
+							<div>
+								<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">{username}</h3>
+								<p class="text-sm text-muted-foreground">Member</p>
+							</div>
+						</div>
+					</div>
 				</div>
+				{#if clicked}
+					<div class="ml-3 z-10 absolute top-[20em] bg-slate-50 rounded-2xl">
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<div
+							on:click={goto(`/user/${data.sub}`)}
+							class=" 
+							 hover:rounded-2xl hover:border hover:border-gray-400 hover:border-solid
+							 p-6 flex items-center space-x-4"
+						>
+							<img
+								class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
+								alt="User Profile"
+								src={data.pfp}
+							/>
+							<div class="flex justify-between items-center w-full">
+								<div>
+									<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">{username}</h3>
+									<p class="text-sm text-muted-foreground">Creator</p>
+								</div>
+							</div>
+						</div>
+
+						<div
+							on:click={goto(`/home/${data.sub}`)}
+							class="hover:rounded-2xl hover:border hover:border-gray-400 hover:border-solid p-6 flex items-center space-x-4"
+						>
+							<img
+								class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-red-500"
+								alt="User Profile"
+								src={data.pfp}
+							/>
+							<div class="flex justify-between items-center w-full">
+								<div>
+									<h3 class="font-semibold tracking-tight text-sm whitespace-nowrap">{username}</h3>
+									<p class="text-sm text-muted-foreground">Member</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				{/if}
 			</nav>
 		</button>
 	</div>
