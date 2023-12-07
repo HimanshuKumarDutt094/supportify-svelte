@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	export let data;
-	// Props received from the load function
-	let { users, images, creatorUID } = data.props;
+	import { creatorData } from '$lib/store';
+
+	let uid = $page.data.props.uid;
+	let user = $page.data.props.user;
+	let images = $page.data.props.images;
+	creatorData.set({ uid: { user, images } });
+
+	let myc = { uid: { user, images } };
 	let search = '';
 	let searched = false;
 	// Lifecycle function that runs after the component is mounted
@@ -74,17 +79,15 @@
 		{/if}
 		{#if searched}
 			<div class="flex flex-col absolute z-10 gap-2">
-				{#if users?.length > 0}
-					{#each users as user, i}
+				{#if Object.keys(myc).length > 0}
+					{#each myc.uid.user as user, i}
 						{#if user?.toLowerCase().includes(search.toLowerCase())}
 							<div class="result-card flex flex-col">
 								<div>
-									<img class="h-10 w-10 rounded-full" src={images[i]} alt={user} />
+									<img class="h-10 w-10 rounded-full" src={myc.uid.images[i]} alt={user} />
 								</div>
 								<div>{user}</div>
-								<button on:click={() => goto(`/subscribe/creatorid=${creatorUID[i]}`)}>
-									View Creator
-								</button>
+								<button on:click={() => goto(`/subscribe/${uid[i]}`)}> View Creator </button>
 							</div>
 						{/if}
 					{/each}

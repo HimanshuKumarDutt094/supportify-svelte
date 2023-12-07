@@ -6,7 +6,7 @@
 
 {#if step === 0}
 	<div class="mx-auto my-auto flex justify-center items-center">
-		<div class="h-auto bg-white mt-[30vh] rounded-2xl p-5">
+		<div class="h-auto bg-white mt-[30dvh] rounded-2xl p-5">
 			<div class="w-[28em]">
 				<div class="flex justify-center items-center mx-auto m-4 p-3">
 					<span class="text-4xl">Welcome User</span>

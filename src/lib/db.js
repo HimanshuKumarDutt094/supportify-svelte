@@ -16,3 +16,26 @@ export async function connectToDatabase() {
 
 	return client;
 }
+
+export async function searchCreators() {
+	let creatorsObj = {};
+
+	const client = await connectToDatabase();
+	const db = client.db('supportify-svelte');
+	const collection = db.collection('creators');
+
+	const documents = await collection.find().toArray();
+
+	creatorsObj = documents.reduce((obj, document) => {
+		obj[document.uid] = { user: document.users, images: document.images };
+		return obj;
+	}, {});
+
+	const result = Object.entries(creatorsObj).map(([uid, { user, images }]) => ({
+		uid,
+		user,
+		images
+	}));
+
+	return result;
+}

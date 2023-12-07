@@ -1,5 +1,5 @@
 <div
-	class="rounded-lg border w-full bg-card text-card-foreground shadow-sm w-3/4 mt-[40vh] pr-8 mb-[10vh]"
+	class="rounded-lg border w-full bg-card text-card-foreground shadow-sm w-3/4 mt-[40dvh] pr-8 mb-[10dvh]"
 	data-v0-t="card"
 	id="9mrqblmvhwt"
 >

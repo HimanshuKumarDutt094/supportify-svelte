@@ -25,9 +25,9 @@ export async function insertUser(userData) {
 	} catch (error) {
 		// Handle duplicate key error (E11000) and log a message
 		if (error.code === 11000) {
-			console.log('Error inserting user - Duplicate key:', error.message);
+			console.warn('Error inserting user - Duplicate key:', error.message);
 		} else {
-			console.log('Error inserting user:', error);
+			console.warn('Error inserting user:', error);
 		}
 	}
 }

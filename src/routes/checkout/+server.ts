@@ -13,7 +13,6 @@ export const POST: RequestHandler = async ({ request }) => {
 	// items: [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 	const data = await request.json();
 	const items = data.items;
-	console.log(items);
 
 	// It gives us a URL for the person to check out with
 	const priceId = data.PRICE_ID;

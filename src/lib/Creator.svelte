@@ -8,7 +8,6 @@
 	let clicked = false;
 	export let creator = '';
 	let data = $usersData;
-	console.log('data is from creators:', data);
 	let username = data.name;
 </script>
 
@@ -162,8 +161,8 @@
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 				<div
-					class="rounded-lg border w-full bg-card text-card-foreground shadow-sm mt-[40vh] pr-8
-				mb-[10vh]"
+					class="rounded-lg border w-full bg-card text-card-foreground shadow-sm mt-[40dvh] pr-8
+				mb-[10dvh]"
 					data-v0-t="card"
 					id="9mrqblmvhwt"
 				>

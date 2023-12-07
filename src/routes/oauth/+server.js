@@ -37,7 +37,7 @@ export const GET = async ({ url }) => {
 
 		throw redirect(303, `/home/${user.sub.toString()}`);
 	} catch (err) {
-		console.log('error is ', err);
+		console.warn('error is ', err);
 		throw err;
 	}
 };

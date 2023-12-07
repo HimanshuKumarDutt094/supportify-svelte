@@ -21,7 +21,7 @@
 </script>
 
 <div
-	class="bg-white mt-[20vh] p-6 rounded-2xl flex flex-col w-fit mx-auto my-auto justify-center items-center px-5"
+	class="bg-white mt-[20dvh] p-6 rounded-2xl flex flex-col w-fit mx-auto my-auto justify-center items-center px-5"
 >
 	<script src="https://accounts.google.com/gsi/client" async></script>
 	<div class="flex max-w-full flex-col items-center mt-2em mb-2em p-5e max-md:my-10">

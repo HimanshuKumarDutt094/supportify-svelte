@@ -29,7 +29,6 @@
 			})
 		);
 		const scrollers = document.querySelectorAll('.scroller');
-		console.log(scrollers);
 		// If a user hasn't opted in for recuded motion, then we add the animation
 		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			addAnimation();
@@ -37,7 +36,6 @@
 
 		function addAnimation() {
 			scrollers.forEach((scroller) => {
-				console.log(scroller.children);
 				// add data-animated="true" to every `.scroller` on the page
 				scroller.setAttribute('data-animated', true);
 
@@ -76,7 +74,6 @@
 			e.preventDefault();
 			if (e && e.target && e.target.tagName === 'BUTTON') {
 				let val = e.target.textContent.trim();
-				console.log(val);
 				if (val === 'Creators') {
 					isHoveredCreators = true;
 					isHoveredAny = true;
@@ -572,7 +569,7 @@
 
 	body {
 		display: grid;
-		min-block-size: 100vh;
+		min-block-size: 100dvh;
 		place-content: center;
 		font-family: system-ui;
 		font-size: 1.125rem;

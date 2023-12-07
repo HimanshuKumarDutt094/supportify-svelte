@@ -1,6 +1,9 @@
 <script>
-	import { usersData } from '$lib/store';
-	let data = $usersData;
+	import { creatorData } from '$lib/store';
+	import { page } from '$app/stores';
+
+	let Cdata = $creatorData;
+
 	import { get } from 'svelte/store';
 	async function checkout(PRICE_ID) {
 		await fetch(`/checkout`, {
@@ -28,7 +31,7 @@
 				src="/placeholder.svg?height=40&amp;width=40"
 				alt="Logo"
 			/>
-			<h1 class="text-2xl font-bold">{data.name}</h1>
+			<h1 class="text-2xl font-bold">{Cdata.name}</h1>
 		</div>
 		<nav class="flex space-x-4">
 			<a class="underline" href="#">About</a><a class="underline" href="#">Contact</a>
