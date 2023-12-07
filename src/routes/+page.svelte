@@ -269,46 +269,26 @@
 						<li>
 							<ul class="hoverable">
 								<li class="m-2">Podcasters</li>
-								<li class="m-2">Get to know your listeners</li>
-								<li class="m-2">Cut through the noise</li>
-								<li class="m-2">More ways to get paid</li>
-								<li class="m-2">Other podcasters on Supportify</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="hoverable">
 								<li class="m-2">Video creators</li>
-								<li class="m-2">Turn your viewers into your people</li>
-								<li class="m-2">Reach every fan, every time</li>
-								<li class="m-2">More ways to get paid</li>
-								<li class="m-2">Other video creators on Supportify</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="hoverable">
 								<li class="m-2">Musicians</li>
-								<li class="m-2">From your mind to their ears</li>
-								<li class="m-2">Share more than music</li>
-								<li class="m-2">More ways to get paid</li>
-								<li class="m-2">Other musicians on Supportify</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="hoverable">
 								<li class="m-2">Artists</li>
-								<li class="m-2">Earning made easy</li>
-								<li class="m-2">Create what inspires you</li>
-								<li class="m-2">Build community around your art</li>
-								<li class="m-2">Other artists on Supportify</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="hoverable">
 								<li class="m-2">Game devs</li>
-								<li class="m-2">A safe way to get paid</li>
-								<li class="m-2">Selling made simple</li>
-								<li class="m-2">Where real community thrives</li>
-								<li class="m-2">Other game devs on Supportify</li>
 							</ul>
 						</li>
 					</ul>
@@ -329,10 +309,6 @@
 						<li>
 							<ul class="hoverable">
 								<li class="m-2">Create on your terms</li>
-								<li class="m-2">Getting started on Supportify</li>
-								<li class="m-2">Make it your own</li>
-								<li class="m-2">Reach every fan, every time</li>
-								<li class="m-2">Showcase your work</li>
 							</ul>
 						</li>
 						<li>
@@ -348,7 +324,6 @@
 								<li class="m-2">Expand your reach</li>
 								<li class="m-2">Bring in new fans</li>
 								<li class="m-2">Unlock growth</li>
-								<li class="m-2">App integrations</li>
 							</ul>
 						</li>
 						<li>
@@ -356,7 +331,7 @@
 								<li class="m-2">Get business support</li>
 								<li class="m-2">Help when you need it</li>
 								<li class="m-2">Policies to protect you</li>
-								<li class="m-2">Payments powered by Supportify</li>
+								<li class="m-2">Payments powered by Stripe</li>
 							</ul>
 						</li>
 						<li>
@@ -408,16 +383,12 @@
 					<ul class=" m-0 p-0 grid grid-flow-col grid-cols-5 gap-2 text-xs">
 						<li>
 							<ul class="hoverable">
-								<li class="m-2">Creator Hub</li>
-								<li class="m-2">Resources to get started</li>
 								<li class="m-2">Grow your membership</li>
 								<li class="m-2">Connect with creators</li>
 							</ul>
 						</li>
 						<li>
 							<ul class="hoverable">
-								<li class="m-2">Newsroom</li>
-								<li class="m-2">Supportify HQ</li>
 								<li class="m-2">Read latest policy updates</li>
 								<li class="m-2">Explore product updates</li>
 							</ul>

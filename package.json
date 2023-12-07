@@ -40,6 +40,7 @@
 		"firebase": "^10.6.0",
 		"google-auth-library": "^9.2.0",
 		"googleapis": "^128.0.0",
-		"mongodb": "^6.3.0"
+		"mongodb": "^6.3.0",
+		"stripe": "^14.7.0"
 	}
 }

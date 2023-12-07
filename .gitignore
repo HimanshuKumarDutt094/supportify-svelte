@@ -11,9 +11,6 @@ vite.config.ts.timestamp-*
 api
 .vercel
 /api
-<<<<<<< HEAD
 .api
-=======
->>>>>>> 7642566d6529106be040e854c0ca6c5938ca95e4
 
 .vercel

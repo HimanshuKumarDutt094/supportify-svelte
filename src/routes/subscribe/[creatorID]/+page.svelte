@@ -1,6 +1,23 @@
 <script>
 	import { usersData } from '$lib/store';
 	let data = $usersData;
+	import { get } from 'svelte/store';
+	async function checkout(PRICE_ID) {
+		await fetch(`/checkout`, {
+			// http://localhost:5173/api/stripeCheckout
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ PRICE_ID })
+		})
+			.then((data) => {
+				return data.json();
+			})
+			.then((data) => {
+				window.location.replace(data.url);
+			});
+	}
 </script>
 
 <div class="flex flex-col min-h-screen bg-gradient-to-b from-blue-500 to-green-500 text-white">
@@ -44,6 +61,7 @@
 				</div>
 			</div>
 			<button
+				on:click={() => checkout(import.meta.env.VITE_BASIC_ID)}
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-purple-300 h-10 px-4 py-2 mt-4 self-end"
 				>Subscribe</button
 			>
@@ -84,6 +102,7 @@
 				</div>
 			</div>
 			<button
+				on:click={() => checkout(import.meta.env.VITE_PREMIUM_ID)}
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-purple-300 h-10 px-4 py-2 mt-4 self-end"
 				>Subscribe</button
 			>
@@ -134,6 +153,7 @@
 				</div>
 			</div>
 			<button
+				on:click={() => checkout(import.meta.env.VITE_ULTRA_PREMIUM_ID)}
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-purple-300 h-10 px-4 py-2 mt-4 self-end"
 				>Subscribe</button
 			>
