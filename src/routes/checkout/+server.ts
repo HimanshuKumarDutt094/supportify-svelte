@@ -18,7 +18,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	// It gives us a URL for the person to check out with
 	const priceId = data.PRICE_ID;
 
-	const session = await stripe.checkout.sessions.create({
+	const sessionStripe = await stripe.checkout.sessions.create({
 		mode: 'subscription',
 		line_items: [
 			{
@@ -39,7 +39,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	});
 
 	return new Response(
-		JSON.stringify({ url: session.url }), // frontend will get this url to redirect
+		JSON.stringify({ url: sessionStripe.url }), // frontend will get this url to redirect
 		{
 			status: 200,
 			headers: { 'content-type': 'application/json' }

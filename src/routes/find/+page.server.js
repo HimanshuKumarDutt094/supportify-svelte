@@ -6,7 +6,7 @@ import axios from 'axios';
 const production = import.meta.env.VITE_MODE === 'production';
 
 const api = axios.create({
-	baseURL: production ? 'https://supportify-svelte.vercel.app' : 'http://localhost:5173'
+	baseURL: production ? 'https://supportify-svelte.vercel.app/dbCon' : 'http://localhost:5173/dbCon'
 });
 // src/routes/+page.server.js
 export async function load() {

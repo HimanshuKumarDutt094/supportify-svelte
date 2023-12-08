@@ -1,7 +1,3 @@
-<!--
-// v0 by Vercel.
-// https://v0.dev/t/rxQKYyrQfCK
--->
 <div class="flex flex-col items-center justify-center h-screen bg-gray-50">
 	<div
 		class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-md p-8 text-center"
@@ -37,7 +33,7 @@
 				<span
 					class="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12"
 					prompt="placeholder avatar"
-				/><a class="text-blue-500 hover:underline" href="#">View Profile</a>
+				/><a class="text-blue-500 hover:underline" href="/home">View Profile</a>
 			</div>
 			<button
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full"

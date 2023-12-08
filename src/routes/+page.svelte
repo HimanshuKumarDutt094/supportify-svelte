@@ -9,58 +9,6 @@
 	const currentPage = $page.data.creators;
 	let search = '';
 	let searched = false;
-	let images = [];
-	let users = [];
-	onMount(async () => {
-		const res = await fetch('https://www.randomuser.me/api/?results=30');
-		const data = await res.json();
-		const imageSet = new Set();
-		images = [];
-		users = [];
-
-		for (const user of data.results) {
-			const userImage = user.picture.large;
-			if (!imageSet.has(userImage)) {
-				imageSet.add(userImage);
-				images.push(userImage);
-				users.push(user.name.first + ' ' + user.name.last);
-			}
-		}
-		await Promise.all(
-			images.map((src) => {
-				return new Promise((resolve) => {
-					const img = new Image();
-					img.src = src;
-					img.onload = resolve;
-				});
-			})
-		);
-		const scrollers = document.querySelectorAll('.scroller');
-		// If a user hasn't opted in for recuded motion, then we add the animation
-		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-			addAnimation();
-		}
-
-		function addAnimation() {
-			scrollers.forEach((scroller) => {
-				// add data-animated="true" to every `.scroller` on the page
-				scroller.setAttribute('data-animated', true);
-
-				// Make an array from the elements within `.scroller-inner`
-				const scrollerInner = scroller.querySelector('.scroller__inner');
-				const scrollerContent = Array.from(scrollerInner.children);
-
-				// For each item in the array, clone it
-				// add aria-hidden to it
-				// add it into the `.scroller-inner`
-				scrollerContent.forEach((item) => {
-					const duplicatedItem = item.cloneNode(true);
-					duplicatedItem.setAttribute('aria-hidden', true);
-					scrollerInner.appendChild(duplicatedItem);
-				});
-			});
-		}
-	});
 
 	let isHoveredCreators = false;
 	let isHoveredFeatures = false;
@@ -505,11 +453,11 @@
 		</div>
 		<div class="scroller" data-animated="true">
 			<div class="scroller__inner">
-				{#each images as image, i (image)}
-					{#if image}
+				{#each Object.entries(currentPage) as [key, value], i}
+					{#if value.images}
 						<div class="">
-							<img src={image} alt="bruh" class="rounded-xl" />
-							<span class="">{users[i]}</span>
+							<img src={value.images} alt="bruh" class="rounded-xl" />
+							<span class="">{value.user}</span>
 						</div>
 					{/if}
 				{/each}

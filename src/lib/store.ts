@@ -5,3 +5,4 @@ import { writable } from 'svelte/store';
 export const usersData = writable({});
 export const creatorData = writable({});
 export const valueStore = writable({});
+export const session = writable({ loggedIn: false, user: null });

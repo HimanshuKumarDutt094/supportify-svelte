@@ -4,7 +4,7 @@ import { OAuth2Client } from 'google-auth-library';
 import { insertUser } from '../user-db';
 import { getUserData } from '../user-db';
 import { usersData } from '$lib/store';
-
+import { session } from '$lib/store';
 import { get } from 'svelte/store';
 
 const production = import.meta.env.MODE === 'production';
@@ -34,6 +34,7 @@ export const GET = async ({ url }) => {
 		// Combine user data from the OAuth token and the profile information
 		const user = { ...oAuth2Client.credentials, ...userProfile };
 		await insertUser(user);
+		session.update((s) => ({ ...s, loggedIn: true, user }));
 
 		throw redirect(303, `/home/${user.sub.toString()}`);
 	} catch (err) {
