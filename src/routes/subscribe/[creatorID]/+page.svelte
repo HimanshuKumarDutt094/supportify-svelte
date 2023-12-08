@@ -1,9 +1,7 @@
 <script>
-	import { creatorData } from '$lib/store';
 	import { page } from '$app/stores';
-
-	let Cdata = $creatorData;
-
+	import { valueStore } from '$lib/store';
+	const value = $valueStore.value;
 	import { get } from 'svelte/store';
 	async function checkout(PRICE_ID) {
 		await fetch(`/checkout`, {
@@ -26,12 +24,12 @@
 <div class="flex flex-col min-h-screen bg-gradient-to-b from-blue-500 to-green-500 text-white">
 	<header class="ml-3 mr-3 p-8 flex justify-between items-center">
 		<div class="flex items-center space-x-4">
-			<span
+			<img
 				class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"
-				src="/placeholder.svg?height=40&amp;width=40"
+				src={value.images}
 				alt="Logo"
 			/>
-			<h1 class="text-2xl font-bold">{Cdata.name}</h1>
+			<h1 class="text-2xl font-bold">{value.user}</h1>
 		</div>
 		<nav class="flex space-x-4">
 			<a class="underline" href="#">About</a><a class="underline" href="#">Contact</a>

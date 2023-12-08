@@ -1,14 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { creatorData } from '$lib/store';
+	import { creatorData, valueStore } from '$lib/store';
 
-	let uid = $page.data.props.uid;
-	let user = $page.data.props.user;
-	let images = $page.data.props.images;
-	creatorData.set({ uid: { user, images } });
-
-	let myc = { uid: { user, images } };
+	let users = $page;
+	const numUsers = Object.keys($page.data.creators).length;
+	const currentPage = $page.data.creators;
 	let search = '';
 	let searched = false;
 	// Lifecycle function that runs after the component is mounted
@@ -79,20 +76,32 @@
 		{/if}
 		{#if searched}
 			<div class="flex flex-col absolute z-10 gap-2">
-				{#if Object.keys(myc).length > 0}
-					{#each myc.uid.user as user, i}
-						{#if user?.toLowerCase().includes(search.toLowerCase())}
-							<div class="result-card flex flex-col">
-								<div>
-									<img class="h-10 w-10 rounded-full" src={myc.uid.images[i]} alt={user} />
-								</div>
-								<div>{user}</div>
-								<button on:click={() => goto(`/subscribe/${uid[i]}`)}> View Creator </button>
+				{#if numUsers > 0}
+					{#each Object.entries(currentPage) as [key, value], i}
+						{#if value.user.toLowerCase().includes(search.toLowerCase())}
+							<!-- svelte-ignore a11y-no-static-element-interactions -->
+							<!-- svelte-ignore a11y-click-events-have-key-events -->
+							<div
+								on:click={() => {
+									valueStore.set({ value });
+									goto(`/subscribe/${key}`);
+								}}
+								class="flex items-center gap-4 p-4 rounded-md border border-input bg-background hover:bg-gray-100 cursor-pointer"
+							>
+								<img
+									class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"
+									src={value.images}
+									alt="Logo"
+								/>
+								<h1 class="text-2xl font-bold">{value.user}</h1>
 							</div>
 						{/if}
+					{:else}
+						<p>No creator Found.</p>
+						<!-- Your code here -->
 					{/each}
 				{:else}
-					<p>No results found.</p>
+					<p>Creator List empty Please check store.</p>
 				{/if}
 			</div>
 		{/if}

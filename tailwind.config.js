@@ -2,7 +2,7 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {}
+		extend: { scrollbar: ['dark'] }
 	},
-	plugins: []
+	plugins: [require('tailwind-scrollbar')]
 };

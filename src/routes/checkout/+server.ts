@@ -1,5 +1,6 @@
 import Stripe from 'stripe';
 import type { RequestHandler } from '@sveltejs/kit';
+const production = import.meta.env.VITE_MODE === 'production';
 const stripe = new Stripe(import.meta.env.VITE_SECRET_STRIPE_KEY, {
 	apiVersion: '2023-08-16'
 });
@@ -29,8 +30,12 @@ export const POST: RequestHandler = async ({ request }) => {
 		// {CHECKOUT_SESSION_ID} is a string literal; do not change it!
 		// the actual Session ID is returned in the query parameter when your customer
 		// is redirected to the success page.
-		success_url: 'http://localhost:5173/success',
-		cancel_url: 'http://localhost:5173/cancelled'
+		success_url: production
+			? 'https://supportify-svelte.vercel.app/success'
+			: 'http://localhost:5173/sucess',
+		cancel_url: production
+			? 'https://supportify-svelte.vercel.app/cancelled'
+			: 'http://localhost:5173/cancelled'
 	});
 
 	return new Response(

@@ -1,7 +1,14 @@
 <script>
 	// @ts-nocheck
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { creatorData, valueStore } from '$lib/store';
 
+	const numUsers = Object.keys($page.data.creators).length;
+	const currentPage = $page.data.creators;
+	let search = '';
+	let searched = false;
 	let images = [];
 	let users = [];
 	onMount(async () => {
@@ -188,14 +195,22 @@
 			</nav>
 		</div>
 		<div class=" flex items-center justify-center">
-			<a href="/" class=" "> <img src="/logo-supportify.png" alt="Supportify" /></a>
+			<a href="/" class="p-3 rounded-3xl bg-white">
+				<img src="/logo-supportify.png" alt="Supportify" /></a
+			>
 		</div>
 		<div class="flex gap-[1.4rem] items-center justify-end min-w-fit flex-1">
 			<div
 				class="relative leading-4 rounded-3xl
 					"
 			>
-				<form class="flex items-center justify-center rounded-[6rem] border relative">
+				<form
+					class="flex items-center justify-center rounded-[6rem] border relative"
+					on:submit={(e) => {
+						e.preventDefault();
+						searched = true;
+					}}
+				>
 					<!-- svelte-ignore a11y-label-has-associated-control -->
 					<label
 						id="search"
@@ -204,6 +219,8 @@
 						Find a Creator
 					</label>
 					<input
+						on:input={() => (searched = true)}
+						bind:value={search}
 						aria-labelledby="search"
 						type="text"
 						class=" w-full max-w-full outline-none text-ellipsis block indent-[5.4] rounded-[6rem]
@@ -222,8 +239,42 @@
 						placeholder="Find a Creator"
 					/>
 				</form>
+				{#if searched && search.length > 0}
+					<div
+						class="scrollbar-hide flex p-2 rounded-3xl flex-col absolute bg-white z-10 h-[30dvh] overflow-y-scroll overflow-x-hidden"
+					>
+						{#if numUsers > 0}
+							{#each Object.entries(currentPage) as [key, value], i}
+								{#if value.user.toLowerCase().includes(search.toLowerCase())}
+									<!-- svelte-ignore a11y-no-static-element-interactions -->
+									<!-- svelte-ignore a11y-click-events-have-key-events -->
+									<div
+										on:click={() => {
+											valueStore.set({ value });
+											goto(`/subscribe/${key}`);
+										}}
+										class="flex items-center gap-4 rounded-md border border-input bg-background hover:bg-gray-100 cursor-pointer"
+									>
+										<img
+											class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"
+											src={value.images}
+											alt="Logo"
+										/>
+										<h1 class="text-2xl font-bold">{value.user}</h1>
+									</div>
+								{/if}
+							{:else}
+								<p>No creator Found.</p>
+								<!-- Your code here -->
+							{/each}
+						{:else}
+							<p>Creator List empty Please check store.</p>
+						{/if}
+					</div>
+				{/if}
 			</div>
 			<button
+				on:click={() => goto('/login')}
 				type="button"
 				class="   p-[0.5rem]
 				
@@ -236,9 +287,10 @@
 				 {isHoveredAny
 					? 'border-black text-black hover:bg-black hover:text-white '
 					: 'hover:bg-white hover:border-white hover:text-black'}
-				"><div><a href="/login"><span>Log In</span></a></div></button
+				"><div><span>Log In</span></div></button
 			>
 			<button
+				on:click={() => goto('/login')}
 				type="submit"
 				class=" {isHoveredAny ? 'bg-black text-white' : 'bg-white text-black'}
 				  p-[0.5rem]
