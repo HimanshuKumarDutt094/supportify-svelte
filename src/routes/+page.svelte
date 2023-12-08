@@ -432,7 +432,7 @@
 
 								<br />
 
-								Creaivity
+								Creativity
 							</span>
 						</h1>
 					</div>
@@ -474,36 +474,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="sc-e47a6cfe-10 irMECK">
-		<div class="sc-e47a6cfe-12 sc-e47a6cfe-33 hpccAO dcOMug">
-			<div style="color:#9E94F7" class="sc-e47a6cfe-15 ewhea-d">3 SIMPLE STEPS.</div>
-			<h1 style="color:#9E94F7" class="sc-e47a6cfe-16 bVRsTo">HOW DOES <br />IT WORK?</h1>
-			<div color="#9E94F7" class="sc-e47a6cfe-20 fhjERi" />
-			<div class="sc-e47a6cfe-18 blyzrt">
-				It could not be easier! Create a membership with custom requirements though our dashboard.
-				Then offer your membership to your supporters. Members will be awarded with a NFT, which
-				will be added in their wallet.
-			</div>
-		</div>
-		<div class="sc-e47a6cfe-12 sc-e47a6cfe-34 hpccAO gnBAlN">
-			<div class="sc-e47a6cfe-31 eJtmTk">
-				<div class="sc-e47a6cfe-32 eMfErV">
-					<div class="sc-e47a6cfe-28 lfaBAf">
-						<div class="sc-e47a6cfe-29 hmvGEK">1</div>
-						<div class="sc-e47a6cfe-30 kuGDmR">Define membership requirements</div>
-					</div>
-					<div class="sc-e47a6cfe-28 lfaBAf">
-						<div class="sc-e47a6cfe-29 hmvGEK">2</div>
-						<div class="sc-e47a6cfe-30 kuGDmR">Create &amp; offer membership</div>
-					</div>
-					<div class="sc-e47a6cfe-28 lfaBAf">
-						<div class="sc-e47a6cfe-29 hmvGEK">3</div>
-						<div class="sc-e47a6cfe-30 kuGDmR">Gate access to features or content</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </div>
 
 <style>
