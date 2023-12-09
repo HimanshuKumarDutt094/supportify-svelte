@@ -1,3 +1,7 @@
+<script>
+	import { goto } from '$app/navigation';
+</script>
+
 <div class="flex flex-col items-center justify-center h-screen bg-gray-50">
 	<div
 		class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-md p-8 text-center"
@@ -36,8 +40,9 @@
 				/><a class="text-blue-500 hover:underline" href="/home">View Profile</a>
 			</div>
 			<button
+				on:click={() => goto('/')}
 				class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full"
-				>Continue to Dashboard</button
+				>Continue to Homepage</button
 			>
 		</div>
 	</div>
