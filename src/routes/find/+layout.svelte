@@ -2,7 +2,7 @@
 	// @ts-nocheck
 
 	import { goto } from '$app/navigation';
-	import Home from '../../lib/Home.svelte';
+	import Home from '$lib/Home.svelte';
 	import { onMount } from 'svelte';
 	import { usersData } from '$lib/store';
 	export let apiData;
@@ -11,9 +11,7 @@
 
 <main class="flex flex-row flex-nowrap h-screen">
 	<div class="w-1/4 h-full overflow-hidden">
-		{#if data}
-			<Home {data} />
-		{/if}
+		<Home {data} />
 	</div>
 	<div class="w-full h-full overflow-auto">
 		<slot />

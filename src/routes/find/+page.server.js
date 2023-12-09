@@ -6,14 +6,14 @@ import axios from 'axios';
 const production = import.meta.env.VITE_MODE === 'production';
 
 const api = axios.create({
-	baseURL: production ? 'https://supportify-svelte.vercel.app/dbCon' : 'http://localhost:5173/dbCon'
+	baseURL: production ? 'https://supportify-svelte.vercel.app' : 'http://localhost:5173'
 });
 // src/routes/+page.server.js
 export async function load() {
 	try {
 		let uid, user, images;
 		const d = await api.get(
-			production ? 'https://supportify-svelte.vercel.app' : 'http://localhost:5173'
+			production ? 'https://supportify-svelte.vercel.app/dbCon' : 'http://localhost:5173/dbCon'
 		);
 		const creators = d.data.creators;
 		Object.keys(creators).forEach((key) => {

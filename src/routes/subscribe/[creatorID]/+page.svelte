@@ -122,7 +122,6 @@
 	</div>
 </div>
 
-<!-- <CreatorPage creator={value} /> -->
 <div class="flex flex-col min-h-screen bg-gradient-to-b from-blue-500 to-green-500 text-white">
 	<header class="ml-3 mr-3 p-8 flex justify-between items-center">
 		<div class="flex items-center space-x-4">

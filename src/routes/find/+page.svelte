@@ -74,8 +74,10 @@
 				Photography
 			</button>
 		{/if}
-		{#if searched}
-			<div class="flex flex-col absolute z-10 gap-2">
+		{#if searched && search.length > 0}
+			<div
+				class="scrollbar-hide flex p-2 rounded-3xl flex-col absolute bg-white z-10 h-[30dvh] overflow-y-scroll overflow-x-hidden"
+			>
 				{#if numUsers > 0}
 					{#each Object.entries(currentPage) as [key, value], i}
 						{#if value.user.toLowerCase().includes(search.toLowerCase())}
@@ -86,7 +88,7 @@
 									valueStore.set({ value });
 									goto(`/subscribe/${key}`);
 								}}
-								class="flex items-center gap-4 p-4 rounded-md border border-input bg-background hover:bg-gray-100 cursor-pointer"
+								class="flex items-center gap-4 rounded-md border border-input bg-background hover:bg-gray-100 cursor-pointer"
 							>
 								<img
 									class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"
